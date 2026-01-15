@@ -1,8 +1,12 @@
-import { createContext, useContext, useState, ReactNode } from "react";
-import { Product, CartItem } from "../types";
+import { createContext, useContext, useState, type ReactNode } from "react";
+import type { CartItem, Product } from "../types";
 
 interface CartContextType {
-  // TODO: Define el tipo del contexto
+  cart:CartItem[],
+  addToCart : (product: Product) => void,
+  removeFromCart : (id: string) => void,
+  cleanCart : () => void,
+  total:number
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -11,22 +15,38 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
 
   const addToCart = (product: Product) => {
-    // TODO: Implementar lógica
-    // 1. Verificar si el producto ya está en el carrito
-    // 2. Si está, incrementar quantity
-    // 3. Si no está, añadirlo con quantity: 1
-    console.log("Añadir al carrito:", product);
+    const cartCopy = [...cart];
+    const cartItemFound = cartCopy.find(cartItem => cartItem.product.id == product.id);
+    if(cartItemFound){
+      cartItemFound.quantity++;
+    }else{
+      cartCopy.push({product,quantity:1});
+    }
+    
+    setCart(cartCopy);
   };
 
   const removeFromCart = (id: string) => {
-    // TODO: Implementar lógica para eliminar producto
+    setCart(cart.filter(cartItem => cartItem.product.id != id));
   };
 
+  const cleanCart = () => {
+    setCart([]);
+  }
+
   // TODO: Calcular el total real
-  const total = 0;
+  const total = cart.reduce(((carry,cartItem) => carry + cartItem.product.price*cartItem.quantity),0);
 
   return (
-    // TODO: Proveer el contexto con los valores necesarios
+    <CartContext.Provider value={{
+      cart,
+      addToCart,
+      removeFromCart,
+      cleanCart,
+      total
+    }}>
+      {children}
+    </CartContext.Provider>
   );
 };
 

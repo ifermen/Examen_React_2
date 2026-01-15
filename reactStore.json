@@ -1,0 +1,102 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Laptop Developer Pro",
+      "price": 1200,
+      "stock": 10,
+      "image": "https://placehold.co/300?text=Laptop"
+    },
+    {
+      "id": "2",
+      "name": "Wireless Headphones",
+      "price": 150,
+      "stock": 25,
+      "image": "https://placehold.co/300?text=Headphones"
+    },
+    {
+      "id": "3",
+      "name": "4K Monitor 27inch",
+      "price": 300,
+      "stock": 15,
+      "image": "https://placehold.co/300?text=Monitor"
+    },
+    {
+      "id": "4",
+      "name": "Mechanical Keyboard",
+      "price": 80,
+      "stock": 50,
+      "image": "https://placehold.co/300?text=Keyboard"
+    }
+  ],
+  "orders": [
+    {
+      "id": "1830",
+      "orderLines": [
+        {
+          "product": {
+            "id": "1",
+            "name": "Laptop Developer Pro",
+            "price": 1200,
+            "stock": 10,
+            "image": "https://placehold.co/300?text=Laptop"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": "4",
+            "name": "Mechanical Keyboard",
+            "price": 80,
+            "stock": 50,
+            "image": "https://placehold.co/300?text=Keyboard"
+          },
+          "quantity": 1
+        }
+      ],
+      "total": 1280
+    },
+    {
+      "id": "425f",
+      "orderLines": [
+        {
+          "product": {
+            "id": "2",
+            "name": "Wireless Headphones",
+            "price": 150,
+            "stock": 25,
+            "image": "https://placehold.co/300?text=Headphones"
+          },
+          "quantity": 4
+        }
+      ],
+      "total": 600
+    },
+    {
+      "id": "2252",
+      "orderLines": [
+        {
+          "product": {
+            "id": "3",
+            "name": "4K Monitor 27inch",
+            "price": 300,
+            "stock": 15,
+            "image": "https://placehold.co/300?text=Monitor"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": "2",
+            "name": "Wireless Headphones",
+            "price": 150,
+            "stock": 25,
+            "image": "https://placehold.co/300?text=Headphones"
+          },
+          "quantity": 1
+        }
+      ],
+      "total": 450
+    }
+  ]
+}
